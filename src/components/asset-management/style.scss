@@ -10,5 +10,5 @@ $title-color: red;
 .hello {
   color: $title-color;
   font-family: 'Awesome';
-  background: url('../asset/icon.png');
+  background: url('./icon.png');
 }
