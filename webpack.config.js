@@ -1,18 +1,28 @@
 import path from 'path';
+import HtmlWebpackPlugin from 'html-webpack-plugin';
 const __dirname = path.resolve();
 
 export default function (env, argv) {
   return {
-    entry: './src/index.ts',
+    entry: {
+      index: './src/index.ts',
+      print: './src/print.ts',
+    },
     mode: env.production ? 'production' : 'development',
     devtool: env.production ? 'source-map' : 'eval',
     output: {
-      filename: 'bundle.js',
+      filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
+      clean: true
     },
     resolve: {
       extensions: ['.tsx', '.ts', '.js'],
     },
+    plugins: [
+      new HtmlWebpackPlugin({
+        title: 'Output management',
+      }),
+    ],
     module: {
       rules: [
         {
