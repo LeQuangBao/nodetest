@@ -1,6 +1,5 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
-import ESLintWebpackPlugin from 'eslint-webpack-plugin';
 
 const __dirname = path.resolve();
 
@@ -12,6 +11,9 @@ export default function (env, argv) {
     },
     mode: env.production ? 'production' : 'development',
     devtool: env.production ? 'source-map' : 'eval',
+    devServer: {
+      static: './dist',
+    },
     output: {
       filename: '[name].bundle.js',
       path: path.resolve(__dirname, 'dist'),
@@ -24,7 +26,6 @@ export default function (env, argv) {
       new HtmlWebpackPlugin({
         title: 'Development',
       }),
-      new ESLintWebpackPlugin()
     ],
     module: {
       rules: [
@@ -55,5 +56,8 @@ export default function (env, argv) {
         }
       ]
     },
+    optimization: {
+      runtimeChunk: 'single'
+    }
   }
 }
