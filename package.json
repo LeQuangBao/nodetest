@@ -5,9 +5,7 @@
   "private": "true",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npm run build-babel && npm run build-webpack",
-    "build-babel": "babel src -d src --extensions \".ts\"",
-    "build-webpack": "webpack"
+    "build": "webpack"
   },
   "author": "",
   "license": "ISC",
