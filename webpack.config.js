@@ -1,5 +1,7 @@
 import path from 'path';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ESLintWebpackPlugin from 'eslint-webpack-plugin';
+
 const __dirname = path.resolve();
 
 export default function (env, argv) {
@@ -20,8 +22,9 @@ export default function (env, argv) {
     },
     plugins: [
       new HtmlWebpackPlugin({
-        title: 'Output management',
+        title: 'Development',
       }),
+      new ESLintWebpackPlugin()
     ],
     module: {
       rules: [
